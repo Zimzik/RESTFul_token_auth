@@ -19,11 +19,10 @@ class App {
     document.querySelector('#todos').appendChild(el);
 
     let close = document.querySelectorAll('.delete');
-    console.log(close);
     for (let i = 0; i < close.length; i++) {
       close[i].onclick = function () {
-        let div = this.parentElement;
-        div.remove();
+        let li = this.parentElement;
+        li.remove();
       }
     }
   }
