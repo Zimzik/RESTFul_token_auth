@@ -1,4 +1,5 @@
 class App {
+  
   init() {
     document.querySelector('#dialog-button')
       .addEventListener(
@@ -9,13 +10,9 @@ class App {
   async openCreateDialog() {
     let dialog = new AddTodoDialog();
     let text = await dialog.open();
+    let template = `${text}<span class="delete">\u00D7</span>`
     let el = document.createElement('li');
-    let span = document.createElement('span');
-    let txt = document.createTextNode('\u00D7');
-    el.innerHTML = text;
-    span.className = "delete";
-    span.appendChild(txt);
-    el.appendChild(span);
+    el.innerHTML = template;
     document.querySelector('#todos').appendChild(el);
 
     let close = document.querySelectorAll('.delete');
